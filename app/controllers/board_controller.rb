@@ -35,7 +35,7 @@ def remove
     upd_post = Post.find(params[:post_id])
     upd_post.title = params[:title]
     upd_post.content = params[:content]
-    upd_post.editor = params[:editor]
+    upd_post.editor = params[:email]
     upd_post.save
     
     redirect_to '/index'
