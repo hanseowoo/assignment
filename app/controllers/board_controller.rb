@@ -16,7 +16,7 @@ class BoardController < ApplicationController
      board_write.content = @content_write
      board_write.save
      
-     redirect_to '/index/'
+     redirect_to '/'
      
   end
   def show
@@ -40,6 +40,8 @@ def remove
     
     redirect_to '/index'
   end
+  
+    
 end
 
 

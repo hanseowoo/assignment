@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   
   root 'board#index'
-  get 'index' => 'board#index'
-  get 'new' => 'board#new'
+  
+  get '/new' => 'board#new'
   post 'write' => 'board#write'
   get 'show/:post_id' => 'board#show'
    get 'remove/:post_id' => 'board#remove'
   get 'update_view/:post_id' => 'board#update_view'
   post 'update/:post_id' => 'board#update'
+    post '/comment_create' => 'comment#comment_create'
+  get '/comment_destroy/:id' => 'comment#reply_destroy'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
