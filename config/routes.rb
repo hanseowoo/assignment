@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root 'board#index'
-  
+  get '/index' => 'board#index'
   get '/new' => 'board#new'
   post 'write' => 'board#write'
   get 'show/:post_id' => 'board#show'

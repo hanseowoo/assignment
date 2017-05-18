@@ -17,6 +17,7 @@
         
         <% @show_list.replies.each do |p| %>
             댓글 : <%= p.dbreply %><br>
+           작성자: <%= p.editor %><br>
             <a href="/comment_destroy/<%= p.id %>">delete</a><br>
         <% end %>
         
@@ -25,7 +26,8 @@
       <div class="row">
         <div class="input-field col s12">
           <input type="hidden" name="reply_id" value="<%= @show_list.id %>">
-          <input name="inputreply" id="comment" type="text" class="validate">
+          작성자 : <input type="text" name="inputEditor"><br>
+          댓글 : <input name="inputreply" id="comment" type="text" class="validate">
           <label for="name" data-error="wrong" data-success="작성완료">댓글작성</label>
         </div>
         </div>

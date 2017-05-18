@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170513105008) do
 
   create_table "replies", force: :cascade do |t|
     t.text     "dbreply"
-    t.string   "post_email"
+    t.string   "editor"
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
