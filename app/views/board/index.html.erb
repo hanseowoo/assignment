@@ -1,6 +1,22 @@
+
+<% if user_signed_in? %>
+  
+  <%= current_user.email %>
+  <a href="/users/sign_out">로그아웃</a><br><br>
+  
+<% else %>
+  <a href="/users/sign_in">로그인</a><br><br>          
+        
+<% end %>
+
+
+
+
 <% @view_list.each do |p| %>
-     
+     users
+     : <%= p.user.email %>
      <div class ="container mt-5">
+      
              <div class="card">
           <div class="card-header">
             게시글 <%=p.id %>
@@ -8,6 +24,7 @@
           <div class="card-block">
             <h4 class="card-title"><a href="/show/<%=p.id%>"><%= p.title %></a></h4>
             <span style="font: italic bold;font-size: 10pt"><p class="card-text"><%= p.editor %></p></span><br>
+            <p> <%= p.content %> </p>
           </div>
         </div>
         </div>

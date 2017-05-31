@@ -1,7 +1,13 @@
 class BoardController < ApplicationController
+  
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
-        @view_list = Post.all
-  end
+      
+      @view_list = Post.all
+       
+    end
+  
   def new
   end
   def write
@@ -9,11 +15,18 @@ class BoardController < ApplicationController
      @email_write = params[:email]
      @title_write = params[:title]
      @content_write = params[:content]
-     
+   
      board_write = Post.new
      board_write.editor = @email_write
      board_write.title = @title_write
      board_write.content = @content_write
+     board_write.user=current_user  
+     
+     u = PizzaUploader.new
+     u.store!(params[:imagefile])
+     
+     board_write.image = u
+     
      board_write.save
      
      redirect_to '/'

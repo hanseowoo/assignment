@@ -1,4 +1,4 @@
-
+<a href="/">go home</a>
      
      <div class ="container mt-5">
              <div class="card">
@@ -9,6 +9,8 @@
             <h4 class="card-title"><%= @show_list.title %></h4>
             <p class="card-text"><%= @show_list.content %></p><br>
             <span style="font: italic bold;font-size: 10pt"><p class="card-text"><%= @show_list.editor %></p></span><br>
+            <img src="<%= @show_list.image %>">
+            
                 <button type="button" class="btn btn-success mr-2"><a href="/update_view/<%= @show_list.id %>">수정</a></button>
                 <button type="button" class="btn btn-info"><a href="/remove/<%= @show_list.id %>">삭제</a></button>
           </div>
@@ -26,7 +28,15 @@
       <div class="row">
         <div class="input-field col s12">
           <input type="hidden" name="reply_id" value="<%= @show_list.id %>">
-          작성자 : <input type="text" name="inputEditor"><br>
+          
+          작성자 : 
+          <% if user_signed_in? %>
+              <input name="inputEditor" type="text" value="<%= current_user.email %>" readonly="readonly"/>
+          <% else %>
+              <input type="text" name="inputEditor"><br>
+          <% end %>    
+          
+          
           댓글 : <input name="inputreply" id="comment" type="text" class="validate">
           <label for="name" data-error="wrong" data-success="작성완료">댓글작성</label>
         </div>

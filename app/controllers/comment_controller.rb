@@ -5,6 +5,7 @@ def comment_create
   new_comment.editor = params[:inputEditor]
   new_comment.dbreply = params[:inputreply]
   new_comment.post_id = params[:reply_id]
+  
   new_comment.save
   
   
